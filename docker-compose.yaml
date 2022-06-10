@@ -1,0 +1,10 @@
+version: "3.9"
+
+volumes:
+  images:
+services:
+  image-service:
+    build: image-service
+    network_mode: "host"
+    volumes:
+      - images
