@@ -9,6 +9,6 @@ curl -L -o checkpoints/vqgan_imagenet_f16_16384.ckpt -C - 'https://heibox.uni-he
 
 # Install dependency packages
 conda update -n base conda;
-conda create -n asset-generation-cli pip python=3.7;
-conda run -n asset-generation-cli pip install torch torchvision torchaudio;
-conda run -n asset-generation-cli pip install ftfy regex tqdm omegaconf pytorch-lightning ipython kornia imageio imageio-ffmpeg einops torch-optimizer flask;
+conda create -n asset-generation-service pip python=3.7;
+conda run -n asset-generation-service pip install torch torchvision torchaudio;
+conda run -n asset-generation-service pip install ftfy regex tqdm omegaconf pytorch-lightning ipython kornia imageio imageio-ffmpeg einops torch-optimizer flask;

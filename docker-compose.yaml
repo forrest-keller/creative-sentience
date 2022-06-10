@@ -3,8 +3,8 @@ version: "3.9"
 volumes:
   assets:
 services:
-  asset-generation-cli:
-    build: asset-generation-cli
+  asset-generation-service:
+    build: asset-generation-service
     ports:
       - "5000:5000"
     volumes:

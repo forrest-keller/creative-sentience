@@ -14,13 +14,13 @@ RUN curl -L -o /app/checkpoints/vqgan_imagenet_f16_16384.ckpt -C - 'https://heib
 
 # Install dependency packages
 RUN conda update -n base conda
-RUN conda create -n asset-generation-cli pip python=3.7
-RUN conda run -n asset-generation-cli pip install torch torchvision torchaudio
-RUN conda run -n asset-generation-cli pip install ftfy regex tqdm omegaconf pytorch-lightning ipython kornia imageio imageio-ffmpeg einops torch-optimizer flask
+RUN conda create -n asset-generation-service pip python=3.7
+RUN conda run -n asset-generation-service pip install torch torchvision torchaudio
+RUN conda run -n asset-generation-service pip install ftfy regex tqdm omegaconf pytorch-lightning ipython kornia imageio imageio-ffmpeg einops torch-optimizer flask
 
 # Flask configuration
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=development 
 
-CMD ["conda", "run", "-name", "asset-generation-cli", "flask", "run" ]
+CMD ["conda", "run", "-n", "asset-generation-service", "flask", "run" ]
