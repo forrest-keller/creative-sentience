@@ -9,3 +9,11 @@ services:
       - "5000:5000"
     volumes:
       - assets:/app/assets
+  main-service:
+    build: main-service
+    ports:
+      - "8080:8080"
+    volumes:
+      - assets:/app/assets
+    environment:
+      - ASSET_GENERATION_SERVICE_BASE_URL=http://asset-generation-service:5000
