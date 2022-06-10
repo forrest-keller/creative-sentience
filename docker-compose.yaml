@@ -1,10 +1,10 @@
 version: "3.9"
 
 volumes:
-  images:
+  assets:
 services:
-  image-service:
-    build: image-service
+  asset-generation-cli:
+    build: asset-generation-cli
     network_mode: "host"
     volumes:
-      - images
+      - assets:/app/assets

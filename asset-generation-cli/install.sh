@@ -1,10 +1,14 @@
 #!/bin/bash 
 
 # Install dependencies
-conda create -n vqgan pip python=3.7;
-conda activate vqgan;
+conda create -n asset-generation-cli pip python=3.7;
+conda activate asset-generation-cli;
 pip install torch torchvision torchaudio;
 pip install ftfy regex tqdm omegaconf pytorch-lightning ipython kornia imageio imageio-ffmpeg einops torch-optimizer;
+
+# Download external dependencies
+git clone 'https://github.com/openai/CLIP';
+git clone 'https://github.com/CompVis/taming-transformers';
 
 # Download models
 mkdir -p checkpoints;
