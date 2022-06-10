@@ -5,6 +5,7 @@ volumes:
 services:
   asset-generation-cli:
     build: asset-generation-cli
-    network_mode: "host"
+    ports:
+      - "5000:5000"
     volumes:
       - assets:/app/assets

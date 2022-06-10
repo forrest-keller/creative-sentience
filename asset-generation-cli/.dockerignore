@@ -3,3 +3,5 @@ install.sh
 .gitignore
 /CLIP
 /taming-transformers
+/taming
+/__pycache__
