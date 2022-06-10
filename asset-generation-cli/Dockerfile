@@ -19,4 +19,4 @@ RUN conda run -n asset-generation-cli pip install torch torchvision torchaudio
 RUN conda run -n asset-generation-cli pip install ftfy regex tqdm omegaconf pytorch-lightning ipython kornia imageio imageio-ffmpeg einops torch-optimizer
 
 SHELL ["conda", "run", "--name", "asset-generation-cli", "/bin/bash", "-c"]
-ENTRYPOINT ["conda", "run", "--name", "asset-generation-cli", "python", "main.py"]
+ENTRYPOINT ["conda", "run", "--name", "asset-generation-cli", "python", "generate.py"]
