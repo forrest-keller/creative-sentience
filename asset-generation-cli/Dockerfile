@@ -23,6 +23,4 @@ ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=development 
 
-# SHELL ["conda", "run", "--name", "asset-generation-cli", "/bin/bash", "-c"]
-# ENTRYPOINT ["conda", "run", "--name", "asset-generation-cli", "python", "generate.py"]
-CMD [ "flask", "run" ]
+CMD ["conda", "run", "-name", "asset-generation-cli", "flask", "run" ]
