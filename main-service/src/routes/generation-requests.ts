@@ -4,12 +4,20 @@ import { v4 as uuid } from "uuid";
 import assetGenerationService from "../utility/asset-generation-service";
 import { generateRequestSchema } from "../utility/schemas";
 import fs from "fs";
+import rateLimit from "express-rate-limit";
 
 const router = Router();
 
 const failedIds: string[] = [];
 
-router.post("/", async (req, res) => {
+const rateLimiter = rateLimit({
+  windowMs: 600000, // 10 minutes
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+router.post("/", rateLimiter, async (req, res) => {
   try {
     const body = await generateRequestSchema.validate(req.body);
     const id = uuid();
