@@ -25,7 +25,7 @@ router.post("/", rateLimiter, async (req, res, next) => {
       .join(" | ");
     const params = `-o assets/${id}.jpg -s ${body.resolution.width} ${body.resolution.height} -i ${body.cycles} -p "${promptString}"`;
 
-    res.status(201).send(id);
+    res.status(201).send({ id });
 
     try {
       statuses[id] = "processing";

@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
-import rateLimit from "express-rate-limit";
 import routes from "./routes";
+import cors from "cors";
 
 const PORT = process.env.PORT || 8080;
 
@@ -10,6 +10,8 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
+
 app.use(routes);
 
 // Start server
