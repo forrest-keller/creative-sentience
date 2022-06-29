@@ -1,7 +1,7 @@
-/checkpoints
+checkpoints
 install.sh
 .gitignore
-/CLIP
-/taming-transformers
-/taming
+CLIP
+taming-transformers
+taming
 /__pycache__

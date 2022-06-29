@@ -1,5 +1,7 @@
-/checkpoints
-/CLIP
-/taming-transformers
-/taming
-/__pycache__
+checkpoints
+CLIP
+taming-transformers
+taming
+__pycache__
+.env
+creds.json

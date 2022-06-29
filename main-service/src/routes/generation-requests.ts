@@ -23,13 +23,18 @@ router.post("/", rateLimiter, async (req, res, next) => {
     const promptString = body.prompts
       .map(({ text, weight }) => `${text}:${weight}`)
       .join(" | ");
-    const params = `-o assets/${id}.jpg -s ${body.resolution.width} ${body.resolution.height} -i ${body.cycles} -p "${promptString}"`;
 
     res.status(201).send({ id });
 
     try {
       statuses[id] = "processing";
-      await assetGenerationService.post("/run-generate", params);
+      await assetGenerationService.post("/run-generate", {
+        id,
+        promptString,
+        height: body.resolution.height,
+        width: body.resolution.width,
+        cycles: body.cycles,
+      });
       statuses[id] = "complete";
     } catch (e) {
       statuses[id] = "failed";
